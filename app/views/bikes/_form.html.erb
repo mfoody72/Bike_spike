@@ -1,0 +1,8 @@
+<%= simple_form_for @bike do |f| %>
+  
+  <%= f.input :category, label: "category", input_html: { class: "form-control" } %>
+  <%= f.input :title, label: "The Bike", input_html: { class: "form-control" } %>
+  <%= f.input :description, label: "Descripton:", input_html: { class: "form-control" } %>
+  <br/>
+  <%= f.button :submit %>
+  <% end %>

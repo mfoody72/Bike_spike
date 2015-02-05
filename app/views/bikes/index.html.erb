@@ -1,0 +1,12 @@
+<div id="bikes">
+  <% @bikes.each do |bike| %>
+    <div class="bike">
+      <h2>
+        <%= link_to bike.title, bike %>
+      </h2>
+      <p>
+        <%= bike.category %>
+      </p>
+    </div>
+  <% end %>
+</div>
