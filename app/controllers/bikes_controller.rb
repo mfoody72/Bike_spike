@@ -2,7 +2,12 @@ class BikesController < ApplicationController
 	before_action :find_bike, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@bikes = Bike.all.order("created_at DESC")
+		if params[:category].blank?
+			@bikes = Bike.all.order("created_at DESC")
+		else
+			@category_id = Category.find_by(name: params[:category]).id
+			@bikes = Bike.where(category_id: @category_id).order("created_at DESC")
+		end
 	end
 
 	def show
@@ -41,7 +46,7 @@ class BikesController < ApplicationController
 	private
 
 	def bikes_params
-		params.require(:bike).permit(:category, :title, :description)
+		params.require(:bike).permit(:category, :title, :image, :description, :url, :category_id)
 	end
 
 	def find_bike

@@ -1,17 +1,13 @@
 <div id="bike">
-  <div class="bike">
-  <em>
-      <%= @bike.category %>
-    </em>
+<%= image_tag@bike.image.url(:medium) %>
+
     <h2>
       <%= @bike.title %>
     </h2>
     <p>
       <%= @bike.description %>
     </p>
-
-   
-  </div>
+       
 </div>
 <div id="links">
   <%= link_to "Back", root_path, class: "btn btn-sm btn-default" %>
