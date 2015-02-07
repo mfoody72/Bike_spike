@@ -1,5 +1,6 @@
 class BikesController < ApplicationController
 	before_action :find_bike, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
 		if params[:category].blank?
@@ -14,11 +15,11 @@ class BikesController < ApplicationController
 	end
 
 	def new
-		@bike = Bike.new
+		@bike = current_user.bikes.build
 	end
 
 	def create
-		@bike = Bike.new(bikes_params)
+		@bike = current_user.bikes.build(bikes_params)
 
 			if @bike.save
 				redirect_to @bike
