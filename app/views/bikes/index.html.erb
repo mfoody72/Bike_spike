@@ -1,10 +1,45 @@
-<div id="bikes">
+
+<% if user_signed_in? %>
+  <p id="intro">
+    Hello
+    <%= current_user.name %>
+    <br/>
+    
+  </p>
+<% else %>
+  <p id="intro">
+    What's your bike?
+    <br/>
+    
+  </p>
+<% end %>
+
+
+<div id="posts">
   <% @bikes.each do |bike| %>
-    <div class="bike">
-      <h2>
-        <%= link_to bike.title, bike %>
-      </h2>
-      
+    <div class="post">
+      <div class="post_image">
+        <%= link_to (image_tag bike.image.url(:medium)), bike %>
+      </div>
+      <div class="post_content">
+        <div class="title">
+          <h2>
+            <%= link_to bike.title, bike %>
+          </h2>
+        </div>
+        <div class="data clearfix">
+          <p class="username">
+            Shared by
+            <%= bike.user.name %>
+          </p>
+          <p class="buttons">
+            <span>
+              <i class="fa fa-comments-o"></i>
+              <%= bike.comments.count %>
+            </span>
+          </p>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

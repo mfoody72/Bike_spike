@@ -12,6 +12,7 @@ class BikesController < ApplicationController
 	end
 
 	def show
+		@comments = Comment.where(bike_id: @bike)
 	end
 
 	def new

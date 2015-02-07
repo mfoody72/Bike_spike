@@ -1,3 +1,4 @@
+
 <div id="bike">
 <%= image_tag@bike.image.url(:medium) %>
 
@@ -10,7 +11,22 @@
     <p>
     	<%= @bike.user.name %>
     </p>
-       
+    <div id="comments">
+  <h2 class="comment_count">
+    <%= pluralize(@bike.comments.count, "Comment") %>
+  </h2>
+  <% @comments.each do |comment| %>
+    <div class="comment">
+      <p class="username">
+        <%= comment.user.name %>
+      </p>
+      <p class="content">
+        <%= comment.content %>
+      </p>
+    </div>
+  <% end %>
+  <%= render "comments/form" %>
+</div>       
 </div>
 <div id="links">
   <%= link_to "Back", root_path, class: "btn btn-sm btn-default" %>
