@@ -8,38 +8,27 @@
   </p>
 <% else %>
   <p id="intro">
-    What's your bike?
+    Do you have a bike to rent?
     <br/>
     
   </p>
 <% end %>
 
-
-<div id="posts">
+<div class="transitions-enabled" id="bikes">
   <% @bikes.each do |bike| %>
-    <div class="post">
-      <div class="post_image">
-        <%= link_to (image_tag bike.image.url(:medium)), bike %>
-      </div>
-      <div class="post_content">
-        <div class="title">
-          <h2>
-            <%= link_to bike.title, bike %>
-          </h2>
-        </div>
-        <div class="data clearfix">
-          <p class="username">
-          Vendor:
-            <%= bike.user.name %>
-          </p>
-          <p class="buttons">
-            <span>
-              <i class="fa fa-comments-o"></i>
-              <%= bike.comments.count %>
-            </span>
-          </p>
-        </div>
-      </div>
+    <div class="box panel panel-default">
+      <%= link_to (image_tag bike.image.url()), bike %>
+      <h2>
+        <%= link_to bike.title, bike %>
+      </h2>
+      <p class="user">
+        Submitted by
+        <%= bike.user.name %>
+      </p>
+      <span>
+        <i class="fa fa-comments-o"></i>
+        <%= bike.comments.count %>
+      </span>
     </div>
   <% end %>
 </div>

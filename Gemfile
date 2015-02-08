@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'oauth2', '~> 1.0.0'
 gem 'devise', '~> 3.4.1'
 gem 'acts_as_rateable', '~> 2.0.1'
+gem 'masonry-rails', '~> 0.2.4'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
