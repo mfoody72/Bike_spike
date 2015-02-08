@@ -1,20 +1,35 @@
 
-<div id="bike">
-<%= image_tag@bike.image.url(:medium) %>
-
-    <h2>
-      <%= @bike.title %>
-    </h2>
-    <p>
-      <%= @bike.description %>
-    </p>
-    <p>
-    	<%= @bike.user.name %>
-    </p>
-    <div id="comments">
-      <h2 class="comment_count">
+<div id="post_show">
+<h1>
+    <%= @bike.title %>
+  </h1>
+  <p class="username">
+    Shared by
+    <%= @bike.user.name %>
+    about
+    <%= time_ago_in_words(@bike.created_at) %>
+  </p>
+  <div class="clearfix">
+    <div class="post_image_description">
+       <%= image_tag @bike.image.url(:large) %>
+      <div class="description">
+        <%= simple_format(@bike.description) %>
+      </div>
+    </div>
+     <div class="post_data">
+      <p class="data">
+        <i class="fa fa-comments-o"></i>
         <%= pluralize(@bike.comments.count, "Comment") %>
-      </h2>
+      </p>
+      <% if @bike.user == current_user %>
+        <%= link_to "Edit", edit_bike_path(@bike), class: "data" %>
+        <%= link_to "Delete", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" }, class: "data" %>
+      <% end %>
+    </div>
+    <div id="comments">
+      <h4 class="comment_count">
+        <%= pluralize(@bike.comments.count, "Comment") %>
+      </h4>
       <% @comments.each do |comment| %>
         <div class="comment">
           <p class="username">
@@ -26,10 +41,13 @@
       </div>
   <% end %>
   <%= render "comments/form" %>
+    </div>
+
 </div>       
-</div>
 <div id="links">
   <%= link_to "Back", root_path, class: "btn btn-sm btn-default" %>
   <%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-sm btn-default" %>
   <%= link_to "Delete", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-default" %>
 </div>
+
+
