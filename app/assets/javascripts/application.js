@@ -29,23 +29,7 @@ $(function() {
 });
 
 
-//Calendar
 
-$(document).ready(function() { 
-    $("#start").bind("click", function() {
-      var dateString = $("#date").val().replace(/-/g, "/");
-      var date = new Date(dateString);
-      console.log($("#date").val());
-      $("#dateObject").text(date.toString()); 
-    });
-
-    $("#end").bind("click", function() {
-      var dateString = $("#date2").val().replace(/-/g, "/");
-      var date2 = new Date(dateString);
-      console.log($("#date2").val());
-      $("#dateObject").text(date.toString()); 
-    });
-  });
 
 //Raty
 
