@@ -29,6 +29,17 @@
         <i class="fa fa-comments-o"></i>
         <%= bike.comments.count %>
       </span>
+      <div class="star-rating"></div>
     </div>
+     
   <% end %>
 </div>
+
+  
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    scoreName: 'comment[rating]'
+  });
+</script>

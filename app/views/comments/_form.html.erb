@@ -1,5 +1,16 @@
-<%= simple_form_for([@bike, @bike.comments.build]) do |f| %>
-  <%= f.input :rating, label: "Add a rating" %>
+<%= simple_form_for([@bike, @comment]) do |f| %>
+  <div class="field">
+    <div class="star-rating"></div>
+  </div>
   <%= f.input :content, label: "Reply to thread" %>
   <%= f.button :submit, class: "button" %>
 <% end %>
+
+
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    scoreName: 'comment[rating]'
+  });
+</script>

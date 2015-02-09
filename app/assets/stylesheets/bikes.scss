@@ -5,14 +5,14 @@
 
 
 
-#post_show {
+#bike_show {
 	padding-top: 2rem;
 	.post_image_description {
 		width: 50%;
 		float: left;
 		margin-right: 5%;
 	}
-	.post_data {
+	.bike_data {
 		width: 15%;
 		float: left;
 		.button {
@@ -38,7 +38,7 @@
 			margin: 0;
 		}
 	}
-	#random_post {
+	#map{
 		width: 25%;
 		margin-left: 5%;
 		margin-top: -3.2rem;
@@ -46,7 +46,7 @@
 		h3 {
 			font-size: 1rem;
 		}
-		.post {
+		.map {
 			background: #F8F9FA;
 			border: 1px solid #E4E4E4;
 			border-radius: 0.3rem;
@@ -58,7 +58,7 @@
 					border-radius: .3rem .3rem 0 0;
 				}
 			}
-			.post_content {
+			.map_content {
 				h2 {
 					margin: 0;
 					font-weight: 100;
@@ -93,57 +93,6 @@
 			}
 		}
 	}
-	h1 {
-		margin: 0;
-		color: #333233;
-	}
-	img {
-		width: 100%;
-		border-radius: .3rem;
-	}
-	.username {
-		color: #969696;
-		margin: 0 0 1.5rem 0;
-	}
-	.description {
-		margin: 2rem 0;
-		font-size: 1.5rem;
-		line-height: 1.5;
-		color: #969696;
-	}
+
 }
 
-#comments {
-	padding-bottom: 4rem;
-	width: 50%;
-	.comment_count {
-		border-bottom: 1px solid #E9E9E9;
-		padding-bottom: .5rem;
-		margin-bottom: 0;
-	}
-	.comment {
-		padding: 2rem 0;
-		border-bottom: 1px solid #E9E9E9;
-		padding-left: 5%;
-		.username {
-			font-size: 1.3rem;
-			color: #333233;
-			margin: 0 0 .5rem 0;
-		}
-		.content {
-			margin: 0;
-			color: #969696;
-		}
-	}
-	.comment_content {
-		margin-top: 2.5rem;
-		textarea {
-			width: 100%;
-			margin: 1rem 0;
-			min-height: 150px;
-			border: 1px solid #E4E4E4;
-			background: #F8F9FA;
-			border-radius: 0.3rem;
-		}
-	}
-}

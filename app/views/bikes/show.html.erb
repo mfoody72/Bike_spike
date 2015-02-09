@@ -21,33 +21,29 @@
         <i class="fa fa-comments-o"></i>
         <%= pluralize(@bike.comments.count, "Comment") %>
       </p>
-      <% if @bike.user == current_user %>
-        <%= link_to "Edit", edit_bike_path(@bike), class: "data" %>
-        <%= link_to "Delete", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" }, class: "data" %>
-      <% end %>
-    </div>
-    <div id="comments">
-      <h4 class="comment_count">
-        <%= pluralize(@bike.comments.count, "Comment") %>
-      </h4>
+      <%= link_to "Add comment", new_bike_comment_path(@bike) %>
       <% @comments.each do |comment| %>
         <div class="comment">
-          <p class="username">
-          </p>
-          <p><%= comment.rating %></p>
-          <p class="content">
-            <%= comment.content %>
-          </p>
-      </div>
+          <div class="star-rating" data-score= <%= comment.rating %>></div>
+          <%= comment.content %>
+          <%= link_to "Edit Comments", edit_bike_comment_path(@bike, comment) %>
+        </div>
   <% end %>
-  <%= render "comments/form" %>
+      <% if @bike.user == current_user %>
+        <%= link_to "Edit Bike", edit_bike_path(@bike)  %>
+        <%= link_to "Delete", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
     </div>
+   
 
-</div>       
-<div id="links">
-  <%= link_to "Back", root_path, class: "btn btn-sm btn-default" %>
-  <%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-sm btn-default" %>
-  <%= link_to "Delete", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-default" %>
-</div>
-
+<script>
+  $('.star-rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: function() {
+        return $(this).attr('data-score');
+    }
+  });
+  
+</script>
 
