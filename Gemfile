@@ -18,13 +18,17 @@ gem 'devise', '~> 3.4.1'
 gem 'acts_as_rateable', '~> 2.0.1'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'byebug'
-
+  gem 'pg'
   gem 'web-console', '~> 2.0'
 
   gem 'spring'
+end
+
+group :production do
+	gem 'pg'
 end
 

@@ -12,6 +12,8 @@
   <div class="clearfix">
     <div class="post_image_description">
        <%= image_tag @bike.image.url(:large) %>
+       <div class="star-rating" data-score= <%= @avg_rating%>></div>
+            <em><%= "#{@comments.length} comments" %></em>
       <div class="description">
         <%= simple_format(@bike.description) %>
       </div>

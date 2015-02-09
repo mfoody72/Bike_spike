@@ -1,6 +1,16 @@
 class BikesController < ApplicationController
 	before_action :find_bike, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index, :show]
+	helper_method :set_average_rating
+
+	def set_average_rating(bike)
+		if bike.comments.blank?
+			@avg_rating = 0
+	    else
+			@avg_rating = bike.comments.average(:rating).round(2)
+	    end
+	    @avg_rating
+	end
 
 	def index
 		if params[:category].blank?
@@ -13,6 +23,7 @@ class BikesController < ApplicationController
 
 	def show
 		@comments = Comment.where(bike_id: @bike.id).order("created_at DESC")
+		@avg_rating = set_average_rating( @bike )
 	end
 
 	def new
@@ -21,11 +32,10 @@ class BikesController < ApplicationController
 
 	def create
 		@bike = current_user.bikes.build(bikes_params)
-
-			if @bike.save
-				redirect_to @bike
-			else
-				render 'new'
+		if @bike.save
+			redirect_to @bike
+		else
+			render 'new'
 		end
 	end
 

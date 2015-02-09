@@ -29,7 +29,7 @@
         <i class="fa fa-comments-o"></i>
         <%= bike.comments.count %>
       </span>
-      <div class="star-rating"></div>
+      <div class="star-rating" data-score="<%= set_average_rating(bike) %>"></div>
     </div>
      
   <% end %>
@@ -39,7 +39,10 @@
 
 <script>
   $('.star-rating').raty({
-    path: '/assets/',
-    scoreName: 'comment[rating]'
+    path: '/assets',
+    readOnly: true,
+    score: function() {
+        return $(this).attr('data-score');
+    }
   });
 </script>
