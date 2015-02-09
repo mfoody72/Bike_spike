@@ -12,7 +12,7 @@ class BikesController < ApplicationController
 	end
 
 	def show
-		@comments = Comment.where(bike_id: @bike)
+		@comments = Comment.where(bike_id: @bike.id).order("created_at DESC")
 	end
 
 	def new

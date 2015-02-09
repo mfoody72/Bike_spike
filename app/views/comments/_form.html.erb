@@ -1,7 +1,5 @@
 <%= simple_form_for([@bike, @comment]) do |f| %>
-  <div class="field">
-    <div class="star-rating"></div>
-  </div>
+  <div class="star-rating"></div>
   <%= f.input :content, label: "Reply to thread" %>
   <%= f.button :submit, class: "button" %>
 <% end %>

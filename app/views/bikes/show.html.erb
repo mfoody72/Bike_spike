@@ -22,13 +22,20 @@
         <%= pluralize(@bike.comments.count, "Comment") %>
       </p>
       <%= link_to "Add comment", new_bike_comment_path(@bike) %>
-      <% @comments.each do |comment| %>
-        <div class="comment">
-          <div class="star-rating" data-score= <%= comment.rating %>></div>
-          <%= comment.content %>
-          <%= link_to "Edit Comments", edit_bike_comment_path(@bike, comment) %>
-        </div>
-  <% end %>
+      <% if @comments.blank? %>
+          <h3>None yet. Why don't you add one?</h3>
+          <%= link_to "Write a comment",  new_bike_comment_path(@bike), class: "btn btn-danger" %>
+        <% else %>
+          <% @comments.each do |comment| %>
+            <div class="reviews">
+              <div class="star-rating" data-score= <%= comment.rating %>></div>
+              <p><%= comment.content %></p>
+              <%= link_to "Edit Comment", edit_bike_comment_path(@bike, comment) %>
+              <%= link_to "Delete", bike_comment_path(@bike, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+            </div>
+          <% end %>
+          <% end %>
+     
       <% if @bike.user == current_user %>
         <%= link_to "Edit Bike", edit_bike_path(@bike)  %>
         <%= link_to "Delete", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" } %>
