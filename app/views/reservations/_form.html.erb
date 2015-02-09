@@ -1,0 +1,9 @@
+<%= simple_form_for([@bike, @reservation]) do |f| %>
+  <div class="star-rating"></div>
+  <%= f.input :start_date, label: "Start date:" %>
+  <%= f.input :end_date, label: "End date:" %>
+  <%= f.button :submit, class: "button" %>
+<% end %>
+
+
+
