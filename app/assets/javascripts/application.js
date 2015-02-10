@@ -37,3 +37,13 @@ $('#star-rating').raty({
     path: '/assets/',
     scoreName: 'comment[rating]'
   });
+
+//Datepicker
+$(document).ready(function() {
+  return $("[data-datetimepicker]").each(function() {
+    return $(this).datetimepicker({
+      dateFormat: "yy-mm-dd",
+      timeFormat: "hh:mm"
+    });
+  });
+});

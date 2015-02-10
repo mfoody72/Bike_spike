@@ -39,7 +39,15 @@ class BikesController < ApplicationController
 		end
 	end
 
-	def edit
+
+	def availability
+		@availability = Availability.new(params[:availability])
+		if @availability.save
+			redirect_to @bike
+		else
+			render 'new'
+		end
+
 	end
 
 	def update
