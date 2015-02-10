@@ -1,13 +1,6 @@
 <%= simple_form_for([@bike, @reservation]) do |f| %>
   <%= f.input :start_date, label: "Start date:" %>
   <%= f.input :end_date, label: "End date:" %>
-
-  <input id="date" type="date" name="date1" value="" />
-  <input id="start" type="button" value="Start" />
-
-  <input id="date2" type="date" name="date2" value="" />
-  <input id="end" type="button" value="End" />
-  
   <%= f.button :submit, class: "button" %>
 <% end %>
 
