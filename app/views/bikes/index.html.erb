@@ -1,18 +1,5 @@
 
-<% if user_signed_in? %>
-  <p id="intro">
-    Hello
-    <%= current_user.name %>
-    <br/>
-    
-  </p>
-<% else %>
-  <p id="intro">
-    Do you have a bike to rent?
-    <br/>
-    
-  </p>
-<% end %>
+
 
 <div class="transitions-enabled" id="bikes">
   <% @bikes.each do |bike| %>

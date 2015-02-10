@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :bikes
   has_many :comments, dependent: :destroy
+  has_many :reservations, dependent: :destroy
 end
