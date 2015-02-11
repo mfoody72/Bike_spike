@@ -1,15 +1,16 @@
-<h2><%= @bike.title %></h2>
-<h4 class="bike-price" data-price="<%= @bike.price.gsub("$", "") %>"><%= @bike.price %> per day</h4>
+<div class="col-md-6">
+		<h2><%= @bike.title %></h2>
+			<h3 class="bike-price" data-price="<%= @bike.price.gsub("$", "") %>"><%= @bike.price %> per day</h3>
+			<%= simple_form_for([@bike, @reservation]) do |f| %>
+			  <%= f.input :start_date, label: "Start date", input_html: { type: 'date' }, class: "col-md-6"  %>
+			  <%= f.input :end_date, label: "End date", input_html: { type: 'date' }  %>
+			  <%= f.button :submit, class: "button" %>
+			<% end %>
+		</br>
+	<h3>Total cost: <span id="priceObject"></span></h3>
+</div>
 
-
-<%= simple_form_for([@bike, @reservation]) do |f| %>
-  <%= f.input :start_date, label: "Start date", input_html: { type: 'date' }, class: "col-md-6"  %>
-  <%= f.input :end_date, label: "End date", input_html: { type: 'date' }  %>
-  <%= f.button :submit, class: "button" %>
-<% end %>
-
-
-<input id="startbutton" class="button" type="button" value="Submit start" />
-
-<input id="endbutton" class="button" type="button" value="Submit end" />
-	
+<div class="sidewrapper col-md-4">
+	<p><input id="startbutton" class="btn btn-default button" type="button" value="Submit start" /></p>
+	<p><input id="endbutton" class="btn btn-default button" type="button" value="Submit end" /></p>
+</div>

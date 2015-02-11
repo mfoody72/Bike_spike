@@ -3,37 +3,42 @@
 <head>
   <title>BikeSpike</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet"></link>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"></link>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <nav class="navbar navbar-default">
+<body class="bikr">
+  <header>
     <div class="container">
-      <div class="navbar-brand">Bikr</div>
-        <ul class="nav navbar-nav">
-          <li>
-            <%= link_to "All Bikes", root_path %>
-          </li>
-            <% Category.all.each do |category| %>
-          <li>
-            <%= link_to category.name, bikes_path(category: category.name) %>
-          </li>
-          <% end %>
-          <% if user_signed_in? %>
-            <li><%= link_to current_user.name, edit_user_registration_path %></li>
-            <li><%= link_to "Add New Bike", new_bike_path, class: "navbar-link" %></li>
-          <% else %>
-            <li><%= link_to "Sign in", new_user_session_path %></li>
-            <li><%= link_to "Sign Up", new_user_registration_path, class: "navbar-text navbar-right navbar-link" %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+        <div class="col-md-9">
+          <h4>Bikr</h4>
+        </div>
+          <div class="col-md-3">
+            <p class"pull-right">Welcome: <%= link_to current_user.name, edit_user_registration_path %></p>
+          </div>
+            </br>
+              <hr>
+              <div class="col-md-9">
+                <ul class="nav navbar-nav">
+                  <li>
+                    <%= link_to "All Bikes", root_path %>
+                  </li>
+                    <% Category.all.each do |category| %>
+                  <li>
+                    <%= link_to category.name, bikes_path(category: category.name) %>
+                  </li>
+                  <% end %>
+                  </ul>
+                  </div>
+                  <div class="col-md-3 login">
+                    <% if user_signed_in? %>
+                    <%= link_to "Add New Bike", new_bike_path, class: "btn btn-default pull-right" %>
+                  <% else %>
+                    <%= link_to "Sign in", new_user_session_path, class: "btn btn-default pull-right" %>
+                    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default pull-right" %>
+                  <% end %>
+          </div>
+</header>
+
   <div class="container">
       <%= yield %>
    </div> 

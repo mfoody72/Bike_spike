@@ -17,6 +17,9 @@
 //= require turbolinks
 //= require_tree .
 
+
+
+
 //Masonry
 
 $(function() {
@@ -43,3 +46,15 @@ $(function() {
     });
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+

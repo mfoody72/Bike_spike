@@ -8,7 +8,8 @@ class ReservationsController < ApplicationController
 
 	def create
     @bike = Bike.find(params[:bike_id])
-    @reservation = @bike.reservations.build
+    @reservation = @bike.reservations.build reservation_params
+    # binding.pry
     if @reservation.save
       redirect_to bike_path(@bike)
     else
