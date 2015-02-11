@@ -26,7 +26,7 @@ $(function() {
       isFitWidth: true
     });
   });
-});
+
 
 
 
@@ -38,11 +38,13 @@ $('#star-rating').raty({
     scoreName: 'comment[rating]'
   });
 
-//Datepicker
-$(".date-picker").datepicker();
-
-$(".date-picker").on("change", function () {
-    var id = $(this).attr("id");
-    var val = $("label[for='" + id + "']").text();
-    $("#msg").text(val + " changed");
+$('.star-rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: function() {
+        return $(this).attr('data-score');
+    }
+  });
 });
+
+//Datepicker
