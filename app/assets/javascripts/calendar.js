@@ -1,19 +1,20 @@
 
 //Calendar
+  var startDate, endDate;
 
-$(document).ready(function() { 
-    $("#start").bind("click", function() {
-      var dateString = $("#date").val().replace(/-/g, "/");
-      var date = new Date(dateString);
-      console.log($("#date").val());
-      $("#starteDateObject").text(date.toString()); 
+  var price
+
+  $(document).ready(function() { 
+    $("#startbutton").bind("click", function() {
+      var startDateString = $("#reservation_start_date").val();
+      startDate = new Date(startDateString);
+      console.log(startDate);
     });
 
-    $("#end").bind("click", function() {
-      var dateString = $("#date2").val().replace(/-/g, "/");
-      var date2 = new Date(dateString);
-      var endDate = $("#date2").val();
-      $("#endDateObject").text(date.toString()); 
+    $("#endbutton").bind("click", function() {
+      var endDateString = $("#reservation_end_date").val();
+      endDate = new Date(endDateString);
+      console.log("$" + (Math.round(Math.abs((endDate.getTime() - startDate.getTime())/(24*60*60*1000))) * 20000) / 100 + ".00");
     });
   });
 

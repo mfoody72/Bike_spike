@@ -37,6 +37,7 @@ module ReservationsHelper
       classes = []
       classes << "today" if day == Date.today
       classes << "notmonth" if day.month != date.month
+      # classes << "booked" if @bike.booked_for?(day)
       classes.empty? ? nil : classes.join(" ")
     end
 

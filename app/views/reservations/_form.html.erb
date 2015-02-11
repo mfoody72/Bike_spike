@@ -1,7 +1,16 @@
 <%= simple_form_for([@bike, @reservation]) do |f| %>
-  <%= f.input :start_date, label: "Start date"  %>
-  <%= f.input :end_date, label: "End date"  %>
+  <%= f.input :start_date, label: "Start date", input_html: { type: 'date' } %>
+  <%= f.input :end_date, label: "End date", input_html: { type: 'date' }  %>
   <%= f.button :submit, class: "button" %>
 <% end %>
 
 
+
+
+<input id="startdate" type="date" name="date1" value="2015-02-11" />
+<input id="startbutton" type="button" value="Create Date object" />
+<span id="dateObject">(date will dump here)</span>
+
+<input id="enddate" type="date" name="date1" value="2015-02-11" />
+<input id="endbutton" type="button" value="Create Date object" />
+<span id="dateObject">(date will dump here)</span>

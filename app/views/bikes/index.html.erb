@@ -1,6 +1,3 @@
-
-
-
 <div class="transitions-enabled" id="bikes">
   <% @bikes.each do |bike| %>
     <div class="box panel panel-default">
@@ -18,18 +15,8 @@
       </span>
       <div class="star-rating" data-score="<%= set_average_rating(bike) %>"></div>
     </div>
-     
   <% end %>
 </div>
 
   
 
-<script>
-  $('.star-rating').raty({
-    path: '/assets',
-    readOnly: true,
-    score: function() {
-        return $(this).attr('data-score');
-    }
-  });
-</script>
