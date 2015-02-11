@@ -3,7 +3,6 @@
 <head>
   <title>BikeSpike</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  
   <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet"></link>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"></link>
   <%= csrf_meta_tags %>
@@ -20,15 +19,15 @@
           <li>
             <%= link_to category.name, bikes_path(category: category.name) %>
           </li>
-            <% end %>
+          <% end %>
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.name, edit_user_registration_path %></li>
+            <li><%= link_to "Add New Bike", new_bike_path, class: "navbar-link" %></li>
+          <% else %>
+            <li><%= link_to "Sign in", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path, class: "navbar-text navbar-right navbar-link" %></li>
+          <% end %>
         </ul>
-        <% if user_signed_in? %>
-    <p>Hello <%= link_to current_user.name, edit_user_registration_path %></p>
-    <%= link_to "Add New Bike", new_bike_path, class: "navbar-text navbar-right navbar-link" %>
-  <% else %>
-    <%= link_to "Sign in", new_user_session_path %>
-    <%= link_to "Sign Up", new_user_registration_path, class: "navbar-text navbar-right navbar-link" %>
-  <% end %>
       </div>
     </div>
   </nav>

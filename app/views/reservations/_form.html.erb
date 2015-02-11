@@ -1,16 +1,15 @@
+<h2><%= @bike.title %></h2>
+<h4 class="bike-price" data-price="<%= @bike.price.gsub("$", "") %>"><%= @bike.price %> per day</h4>
+
+
 <%= simple_form_for([@bike, @reservation]) do |f| %>
-  <%= f.input :start_date, label: "Start date", input_html: { type: 'date' } %>
+  <%= f.input :start_date, label: "Start date", input_html: { type: 'date' }, class: "col-md-6"  %>
   <%= f.input :end_date, label: "End date", input_html: { type: 'date' }  %>
   <%= f.button :submit, class: "button" %>
 <% end %>
 
 
+<input id="startbutton" class="button" type="button" value="Submit start" />
 
-
-<input id="startdate" type="date" name="date1" value="2015-02-11" />
-<input id="startbutton" type="button" value="Create Date object" />
-<span id="dateObject">(date will dump here)</span>
-
-<input id="enddate" type="date" name="date1" value="2015-02-11" />
-<input id="endbutton" type="button" value="Create Date object" />
-<span id="dateObject">(date will dump here)</span>
+<input id="endbutton" class="button" type="button" value="Submit end" />
+	
