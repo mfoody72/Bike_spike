@@ -24,6 +24,7 @@ class BikesController < ApplicationController
 	def show
 		@comments = Comment.where(bike_id: @bike.id).order("created_at DESC")
 		@avg_rating = set_average_rating( @bike )
+		@date = params[:date] ? Date.parse(params[:date]) : Date.today
 	end
 
 	def new

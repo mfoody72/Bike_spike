@@ -15,6 +15,11 @@
       <div class="description">
         <%= simple_format(@bike.description) %>
       </div>
+      <h2 id="month">
+        <%= link_to "<", date: @date.prev_month %>
+        <%= @date.strftime("%B %Y") %>
+        <%= link_to ">", date: @date.next_month %>
+      </h2>
       <div id="availability">
         <%= calendar do | date | %>
         <%= date.day %>
@@ -45,7 +50,7 @@
         <%= link_to "Remove Bike", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" }, class: "button"%>
       <% end %>
     </div>
-   
+
 
 <script>
   $('.star-rating').raty({

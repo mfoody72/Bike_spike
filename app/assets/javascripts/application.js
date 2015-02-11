@@ -39,11 +39,10 @@ $('#star-rating').raty({
   });
 
 //Datepicker
-$(document).ready(function() {
-  return $("[data-datetimepicker]").each(function() {
-    return $(this).datetimepicker({
-      dateFormat: "yy-mm-dd",
-      timeFormat: "hh:mm"
-    });
-  });
+$(".date-picker").datepicker();
+
+$(".date-picker").on("change", function () {
+    var id = $(this).attr("id");
+    var val = $("label[for='" + id + "']").text();
+    $("#msg").text(val + " changed");
 });
