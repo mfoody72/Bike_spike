@@ -2,6 +2,11 @@ class BikesController < ApplicationController
 	before_action :find_bike, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index, :show]
 	helper_method :set_average_rating
+	
+
+
+
+
 
 	def set_average_rating(bike)
 		if bike.comments.blank?

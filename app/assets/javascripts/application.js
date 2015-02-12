@@ -47,7 +47,11 @@ $(function() {
   });
 });
 
-
+$(function() {
+  $('td').click(function() {
+  alert( "Handler for .click() called." );
+  });
+});
 
 
 

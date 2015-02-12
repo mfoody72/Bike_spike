@@ -23,10 +23,9 @@
 
   $(document).ready(function() { 
       $("td").on("click", function() {
-      $(this).css("background-color", "#FF9898");
+      $(this).toggleClass("booked")
     });
   });
-
 
 
       

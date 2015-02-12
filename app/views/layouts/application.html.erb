@@ -16,28 +16,27 @@
             <p class"pull-right">Welcome: <%= link_to current_user.name, edit_user_registration_path %></p>
           </div>
             </br>
-              <hr>
-              <div class="col-md-9">
-                <ul class="nav navbar-nav">
-                  <li>
-                    <%= link_to "All Bikes", root_path %>
-                  </li>
-                    <% Category.all.each do |category| %>
-                  <li>
-                    <%= link_to category.name, bikes_path(category: category.name) %>
-                  </li>
-                  <% end %>
-                  </ul>
-                  </div>
-                  <div class="col-md-3 login">
-                    <% if user_signed_in? %>
-                    <%= link_to "Add New Bike", new_bike_path, class: "btn btn-default pull-right" %>
-                  <% else %>
-                    <%= link_to "Sign in", new_user_session_path, class: "btn btn-default pull-right" %>
-                    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default pull-right" %>
-                  <% end %>
-          </div>
-</header>
+            <div class="col-md-9">
+              <ul class="nav navbar-nav">
+                <li>
+                  <%= link_to "All Bikes", root_path %>
+                </li>
+                  <% Category.all.each do |category| %>
+                <li>
+                  <%= link_to category.name, bikes_path(category: category.name) %>
+                </li>
+                <% end %>
+                </ul>
+                </div>
+                <div class="col-md-3 login">
+                  <% if user_signed_in? %>
+                  <%= link_to "Add New Bike", new_bike_path, class: "btn btn-default pull-right" %>
+                <% else %>
+                  <%= link_to "Sign in", new_user_session_path, class: "btn btn-default pull-right" %>
+                  <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default pull-right" %>
+                <% end %>
+            </div>
+        </header>
 
   <div class="container">
       <%= yield %>

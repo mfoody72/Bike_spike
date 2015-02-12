@@ -75,7 +75,7 @@ label.control-label span { cursor: pointer; }
 	vertical-align: top;
 	font-size: 1.2rem;
         &:hover {
-        background: #EAEAEA;
+        background: #FF9898;
         }
   }
 
@@ -94,7 +94,6 @@ label.control-label span { cursor: pointer; }
     color: #999;
   }
 }
-
 #availability ul {
   font-size: 1rem;
   padding-left: 20px;
@@ -152,5 +151,7 @@ label.control-label span { cursor: pointer; }
 }
 
 
-
+#availability .calendar .booked {
+  background-color: #FF9898;
+}
 
