@@ -8,15 +8,8 @@
 </head>
 <body class="bikr">
   <header>
-    <div class="container">
-        <div class="col-md-9">
-          <h4>Bikr</h4>
-        </div>
-          <div class="col-md-3">
-            <p class"pull-right">Welcome: <%= link_to current_user.name, edit_user_registration_path %></p>
-          </div>
+          <h2>Bikr</h2>
             </br>
-            <div class="col-md-9">
               <ul class="nav navbar-nav">
                 <li>
                   <%= link_to "All Bikes", root_path %>
@@ -26,16 +19,13 @@
                   <%= link_to category.name, bikes_path(category: category.name) %>
                 </li>
                 <% end %>
-                </ul>
-                </div>
-                <div class="col-md-3 login">
                   <% if user_signed_in? %>
-                  <%= link_to "Add New Bike", new_bike_path, class: "btn btn-default pull-right" %>
+                  <li class="newbike"><%= link_to "Add New Bike", new_bike_path %></li>
                 <% else %>
-                  <%= link_to "Sign in", new_user_session_path, class: "btn btn-default pull-right" %>
-                  <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default pull-right" %>
+                  <%= link_to "Sign in", new_user_session_path %>
+                  <%= link_to "Sign Up", new_user_registration_path  %>
                 <% end %>
-            </div>
+                </ul>
         </header>
 
   <div class="container">

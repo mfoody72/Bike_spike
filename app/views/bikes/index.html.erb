@@ -3,7 +3,7 @@
     <div class="box panel panel-default">
       <%= link_to (image_tag bike.image.url()), bike %>
       <h2>
-        <%= link_to bike.title, bike %>
+        <%= bike.title %>
       </h2>
       <p class="user">
         Submitted by
@@ -13,7 +13,6 @@
         <i class="fa fa-comments-o"></i>
         <%= bike.comments.count %>
       </span>
-      <div class="star-rating" data-score="<%= set_average_rating(bike) %>"></div>
     </div>
   <% end %>
 </div>

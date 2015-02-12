@@ -19,38 +19,43 @@
 
 
 
+$(function(){
 
-//Masonry
 
-$(function() {
-  return $('#bikes').imagesLoaded(function() {
-    return $('#bikes').masonry({
-      itemSelector: '.box',
-      isFitWidth: true
+  // $(function() {
+  //   $("body").click(function(event) {
+  //   alert( "Handler for .click() called." );
+  //   });
+  // });
+
+  //Masonry
+
+  $(function() {
+    return $('#bikes').imagesLoaded(function() {
+      return $('#bikes').masonry({
+        itemSelector: '.box',
+        isFitWidth: true
+      });
+    });
+
+  //Raty
+  $(function() {
+    $('.star-rating').raty({
+        path: '/assets/',
+        scoreName: 'comment[rating]'
+      });
+
+    $('.star-rating').raty({
+        path: '/assets',
+        readOnly: true,
+        score: function() {
+            return $(this).attr('data-score');
+        }
+      });
     });
   });
 
-//Raty
-$(function() {
-  $('.star-rating').raty({
-      path: '/assets/',
-      scoreName: 'comment[rating]'
-    });
 
-  $('.star-rating').raty({
-      path: '/assets',
-      readOnly: true,
-      score: function() {
-          return $(this).attr('data-score');
-      }
-    });
-  });
-});
-
-$(function() {
-  $('td').click(function() {
-  alert( "Handler for .click() called." );
-  });
 });
 
 

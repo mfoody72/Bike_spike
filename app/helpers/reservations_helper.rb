@@ -5,7 +5,7 @@ module ReservationsHelper
   # calendar helper method defined here
 
   class Calendar < Struct.new(:view, :bike, :date, :callback)
-    HEADER = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday]
+    HEADER = %w[sun mon tues wed thurs fri sat]
     START_DAY = :sunday
 
     # struct is defining accessors for attributes

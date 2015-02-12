@@ -1,0 +1,12 @@
+<div class="col-md-6">
+		<h2><%= @bike.title %></h2>
+			<%= simple_form_for([@bike, @booked_day]) do |f| %>
+			  <%= f.input :date, label: "booked Day", input_html: { type: 'date' }, class: "col-md-6"  %>
+			  <%= f.button :submit, class: "button" %>
+			<% end %>
+		</br>
+</div>
+
+<div class="sidewrapper col-md-4">
+	<p><input id="bookeddate" class="btn btn-default button" type="button" value="Submit Day" /></p>
+</div>

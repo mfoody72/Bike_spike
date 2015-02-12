@@ -1,5 +1,5 @@
 //Calendar
-  var startDate, endDate, bikeRental;
+  var startDate, endDate, bikeRental, booked_date;
 
 
   $(document).ready(function() { 
@@ -15,6 +15,12 @@
       endDate = new Date(endDateString);
       var bikeRental = "$" + (Math.round(Math.abs((endDate.getTime() - startDate.getTime())/(24*60*60*1000))) * bikePrice) / 100 + ".00";
       $("#priceObject").text(bikeRental);
+    });
+
+    $("#bookeddate").bind("click", function() {
+      var bookedDateString = $("#booked_date").val();
+      bookedDate = new Date(bookedDateString);
+      console.log(bookedDate);
     });
   });
 
