@@ -1,6 +1,6 @@
 
 <div id="bike_show">
-<h1>
+  <h1>
     <%= @bike.title %>
   </h1>
   <p class="username">
@@ -12,46 +12,48 @@
   <div class="clearfix">
     <div class="post_image_description">
        <%= image_tag @bike.image.url(:large) %>
-       <h3 class="bike-price" data-price="<%= @bike.price.gsub("$", "") %>"><%= @bike.price %> per day</h3>
-      <div class="description">
-        <%= simple_format(@bike.description) %>
-      </div>
+         <h3 class="bike-price" data-price="<%= @bike.price.gsub("$", "") %>"><%= @bike.price %> per day</h3>
+          <div class="description">
+            <%= simple_format(@bike.description) %>
+        </div>
     </div>
-     <div class="post_data">
-        <em>Average Rating </em>
-         <div class="star-rating" data-score= <%= @avg_rating%>></div><br/>
-        <i class="fa fa-comments-o"></i>
-        <%= pluralize(@bike.comments.count, "Comment") %>
-      </p>
-      <% if @comments.blank? %>
-          <p>None yet. Why don't you add one?</p>
-          <%= link_to "Write a comment",  new_bike_comment_path(@bike), class: "button" %>
-        <% else %>
-          <% @comments.each do |comment| %>
-            <div class="reviews">
-<!--               <div class="star-rating" data-score= <%= comment.rating %>></div>
- -->              <p><%= comment.content %></p>
-              <%= link_to "Edit Comment", edit_bike_comment_path(@bike, comment), class: "button" %>
-              <%= link_to "Delete Comment", bike_comment_path(@bike, comment), method: :delete, data: { confirm: "Are you sure?" }, id: "deletecomment", class: "button", remote: true %>
-          <% end %>
-          <% end %>
-       <%= link_to "Reserve this bike", new_bike_reservation_path(@bike), class: "button" %>
-       <%= link_to "Booked days", new_bike_booked_day_path(@bike), class: "button" %>
-      <% if @bike.user == current_user %>
-        <%= link_to "Edit Bike", edit_bike_path(@bike), class: "button"  %>
-        <%= link_to "Remove Bike", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" }, class: "button"%>
-      <% end %>
-      <h2 id="month">
-        <%= link_to "<", date: @date.prev_month %>
-        <%= @date.strftime("%B %Y") %>
-        <%= link_to ">", date: @date.next_month %>
-      </h2>
-      <div id="availability">
-        <%= calendar(@bike) do | date | %>
-        <%= date.day %>
-        <% end %>
-      </div>
+
+<div class="post_data">
+  <em>Average Rating </em>
+   <div id="starzshow" class="star-rating" data-score= <%= @avg_rating%>></div><br/>
+    <i class="fa fa-comments-o"></i>
+      <%= pluralize(@bike.comments.count, "Comment") %>
+        <% if @comments.blank? %>
+            <p>None yet. Why don't you add one?</p>
+              <%= link_to "Write a comment",  new_bike_comment_path(@bike), class: "button" %>
+              <% else %>
+                <% @comments.each do |comment| %>
+              <div class="reviews">
+                <div class="star-rating" data-score= <%= comment.rating %>></div>
+                <p><%= comment.content %></p>
+                <div class="button">
+                <%= link_to "Edit Comment", edit_bike_comment_path(@bike, comment)%>
+                <%= link_to "Delete Comment", bike_comment_path(@bike, comment), method: :delete, data: { confirm: "Are you sure?" }  %>
+                </div>
+                <% end %>
+                <% end %>
+                <%= link_to "Reserve this bike", new_bike_reservation_path(@bike), class: "button" %>
+                <%= link_to "Booked days", new_bike_booked_day_path(@bike), class: "button" %>
+                <% if @bike.user == current_user %>
+                <%= link_to "Edit Bike", edit_bike_path(@bike), class: "button"  %>
+                <%= link_to "Remove Bike", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" }, class: "button"%>
+                <% end %>
+                <h2 id="month">
+                  <%= link_to "<", date: @date.prev_month %>
+                  <%= @date.strftime("%B %Y") %>
+                  <%= link_to ">", date: @date.next_month %>
+                </h2>
+                <div id="availability">
+                  <%= calendar(@bike) do | date | %>
+                  <%= date.day %>
+                  <% end %>
     </div>
+</div>
 
 
 

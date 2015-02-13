@@ -37,7 +37,7 @@ class BookedDaysController < ApplicationController
   end
 
   def booked_day_params
-    params.require(:booked_day).permit(:booked_day)
+    params.require(:booked_day).permit(:date)
   end
 
 end

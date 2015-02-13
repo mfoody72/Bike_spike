@@ -12,6 +12,7 @@
       <span>
         <i class="fa fa-comments-o"></i>
         <%= bike.comments.count %>
+        <div id="starz" class="star-rating" data-score="<%= set_average_rating(bike) %>"></div>
       </span>
     </div>
   <% end %>

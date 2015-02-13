@@ -94,17 +94,19 @@ label.control-label span { cursor: pointer; }
 
   th {
     background: #DDD;
-    color: #666;
+    color: #939393;
+    border-color: #EEE;
     text-align: center;
     width: 14.2857142857143%;
   }
 
   td {
     background: #F7F7F7;
-	color: #777;
-	height: 5rem;
-	vertical-align: top;
-	font-size: 1.2rem;
+    color: #777;
+    height: 5rem;
+    vertical-align: top;
+    font-size: 1.2rem;
+    border-color: #EEE;
         &:hover {
         background: #FF9898;
         }
@@ -163,11 +165,10 @@ label.control-label span { cursor: pointer; }
         padding: 10px 10px;
         border-bottom: .1rem solid #EEEEEE;
         color: #337AB7;
-        
-	  	a {
-    		color: #7A7A7A;
-            text-decoration: none;
-	  	}
+  	  	a {
+      		color: #7A7A7A;
+              text-decoration: none;
+  	  	}
 	  }
 	  .user {
 	  	font-size: 1.4rem;
@@ -175,19 +176,37 @@ label.control-label span { cursor: pointer; }
         margin: 0;
         display: inline-flex;
         color: #A8A8A8;
+        }
         span {
           color: #A8A8A8;
         }
         i {
             font-size: 1.3rem;
-            
         }
-	  }
+        #starz {
+          display: inherit;
+          margin-left: 3rem;
+        }
 	}
 }
 
+#bike_show .post_data img {
+      width: 75%;
+      height: 75%;
+    }
 
 #availability .calendar .booked {
   background-color: #FF9898;
 }
 
+@media screen and (max-width: 1210px) {
+    .navbar-nav > li > a {
+    padding-top: 9px;
+    padding-bottom: 9px;
+    line-height: -5rem;
+    margin-bottom: 2rem;
+    border-radius: 9rem;
+    color: #F4F4F4;
+    width: 18rem;
+    }
+}

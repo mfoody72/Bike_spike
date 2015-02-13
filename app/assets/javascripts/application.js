@@ -30,32 +30,30 @@ $(function(){
 
   //Masonry
 
-  $(function() {
-    return $('#bikes').imagesLoaded(function() {
-      return $('#bikes').masonry({
+    $('#bikes').imagesLoaded(function() {
+      $('#bikes').masonry({
         itemSelector: '.box',
         isFitWidth: true
       });
     });
 
   //Raty
-  $(function() {
-    $('.star-rating').raty({
-        path: '/assets/',
-        scoreName: 'comment[rating]'
-      });
 
-    $('.star-rating').raty({
-        path: '/assets',
-        readOnly: true,
-        score: function() {
-            return $(this).attr('data-score');
-        }
-      });
+
+
+  $('.star-rating').raty({
+      path: '/assets',
+      readOnly: true,
+      score: function() {
+          return $(this).attr('data-score');
+      }
     });
-  });
 
-
+  $('.editable-star-rating').raty({
+      path: '/assets',
+      readOnly: false,
+      scoreName: 'comment[rating]'
+    });
 });
 
 
